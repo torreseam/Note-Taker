@@ -30,14 +30,13 @@ Combined various NPMs such as inquirer, fs, express and the use of classes and C
 
   ## Tests
 
-  - Run Command: npm run test
+  - Insomnia API
   ![API Index](./src/api-index.PNG)
 
-  - Run node index.js
 
   ![API Notes](./src/api-notes.PNG)
 
-  - Node index.js browser results
+  - Heroku Deployed Page
 
   ![Heroku Page](./src/heroku-page.PNG)
 
