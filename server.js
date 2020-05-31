@@ -12,7 +12,6 @@ const fs = require('fs')
 //express - initialize and create
 const PORT = process.env.PORT || 3001;
 const app = express();
-// const { notes } = require('./Develop/db/db.json');
 const { v4: uuidv4 } = require('uuid');
 
 // parse incoming string or array data
