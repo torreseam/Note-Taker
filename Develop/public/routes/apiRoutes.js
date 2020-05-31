@@ -7,30 +7,31 @@ let writeFileAsync = util.promisify(fs.writeFile);
 // const path = require("path");
 // const { v4: uuidv4 } = require('uuid');
 
-module.exports = function (app) {
+// module.exports = function (app) {
 
-    //get
-    app.get("/api/notes", function (req, res) {
-        store.getNotes().then((data) => {
-            return res.json(data);
-        });
-    });
+//     //get
+//     app.get("/api/notes", function (req, res) {
+//         store.getNotes().then((data) => {
+//             return res.json(data);
+//         });
+//     });
 
-    //POST
-    app.post("/api/notes", function (req, res) {
-        store.addNote(req.body).then((note) => {
-            return res.json(note);
-        })
-    });
+//     //POST
+//     app.post("/api/notes", function (req, res) {
+//         store.addNote(req.body).then((note) => {
+//             return res.json(note);
+//         })
+//     });
 
-    //Delete
-    app.delete("/api/notes/:id", function (req, res) {
-        store.deleteNote(req.params.id).then(() => {
-            return res.json({ ok: true });
-        })
-    });
-};
+//     //Delete
+//     app.delete("/api/notes/:id", function (req, res) {
+//         store.deleteNote(req.params.id).then(() => {
+//             return res.json({ ok: true });
+//         })
+//     });
+// };
 
+// error message after creating routes
     // app.get('/api/notes', (req, res) => {
     //     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
     //         res.json(JSON.parse(data));

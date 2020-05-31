@@ -21,27 +21,7 @@ app.use(express.json());
 app.use(express.static('Develop/public'));
 
 
-// function findById(id, noteArray) {
-//     const result = noteArray.filter(note => note.id === id)[0];
-//     return result;
-// }
-
-// function createMoreNotes(body, notesArray) {
-//     //body is coming from req.body app.post
-//     const notes = body;
-//     //main function below
-//     notesArray.push(notes);
-
-//     fs.writeFileSync(
-//         path.join(__dirname, '/Develop/db/ db.json'),
-//         JSON.stringify({ notes: notesArray }, null, 2)
-//     );
-
-//     // return finished code to post route for response
-//     return note;
-// }
-
-//establish routes 48-55 commented out for testing  
+//establish routes 
 app.get('/api/notes', (req, res) => {
     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
         res.json(JSON.parse(data));
@@ -60,7 +40,7 @@ app.get('/api/notes', (req, res) => {
 //         res.sendStatus(404);
 //     }
 // });
-//66-98 commented out for testing 
+ 
 app.post('/api/notes', (req, res) => {
     // set id by unique identifier uuidv4 package
     req.body.id = uuidv4();
@@ -94,7 +74,6 @@ app.delete('/api/notes/:id', (req, res) => {
         })
     });
 });
-//66-98 commented out for testing 
 
 //html route  routes
 app.get("/notes", function (req, res) {
@@ -104,8 +83,6 @@ app.get("/notes", function (req, res) {
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./Develop/public/index.html"));
 });
-
-
 
 
 
