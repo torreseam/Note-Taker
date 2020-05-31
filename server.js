@@ -84,8 +84,8 @@ app.delete('/api/notes/:id', (req, res) => {
     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
         console.log(data);
         let dataArray = JSON.parse(data);
-        let dataFilter = dataArray.filter(note => note.id !== req.params.id);
-        fs.writeFile("./Develop/db/db.json", JSON.stringify(dataArray), (err) => {
+        let dataResult = dataArray.filter(note => note.id !== req.params.id);
+        fs.writeFile("./Develop/db/db.json", JSON.stringify(dataResult), (err) => {
             if (err) {
                 console.log(err);
             } else {
