@@ -1,14 +1,1 @@
-{
-    "note":[
-    {
-        "title":"Test Title",
-        "text":"Test text",
-         "id": "1"
-    },
-    {
-        "title": "Title",
-        "text": "text",
-        "id": "2" 
-    }
-]
-}
+[{"title":"Test Title","text":"Test text","id":"test_id"},{"title":"w","text":"e","id":"37de9c9b-e00c-4b10-8d81-886f334e6050"}]
