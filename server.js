@@ -1,5 +1,5 @@
 //Routes-cant get routes to function without an error
-// const apiRoutes = require('./Develop/public/routes/apiRoutes');
+// 
 // const htmlRoutes = require('./routes/htmlRoutes');
 
 
@@ -21,62 +21,51 @@ app.use(express.json());
 app.use(express.static('Develop/public'));
 
 
-//establish routes 
-app.get('/api/notes', (req, res) => {
-    fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
-        res.json(JSON.parse(data));
-    });
-    //comment out 53-55
-    // if (req.query) {
-    //     results = filterByQuery(req.query, results);
-    // }
-});
-
-// app.get('/api/notes/:id', (req, res) => {
-//     const result = findById(req.params.id, notes);
-//     if (result) {
-//         res.json(result);
-//     } else {
-//         res.sendStatus(404);
-//     }
+// //establish routes 
+// app.get('/api/notes', (req, res) => {
+//     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
+//         res.json(JSON.parse(data));
+//     });
 // });
  
-app.post('/api/notes', (req, res) => {
-    // set id by unique identifier uuidv4 package
-    req.body.id = uuidv4();
-    fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
-        console.log(data);
-        let dataArray=JSON.parse(data);
-        dataArray.push(req.body);
-        fs.writeFile("./Develop/db/db.json", JSON.stringify(dataArray), (err) => {
-            if (err) {
-                console.log(err);
-            }else{
-                console.log("note written")
-            }
-        })
-    })
-    res.json(req.body);
-});
+// app.post('/api/notes', (req, res) => {
+//     // set id by unique identifier uuidv4 package
+//     req.body.id = uuidv4();
+//     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
+//         console.log(data);
+//         let dataArray=JSON.parse(data);
+//         dataArray.push(req.body);
+//         fs.writeFile("./Develop/db/db.json", JSON.stringify(dataArray), (err) => {
+//             if (err) {
+//                 console.log(err);
+//             }else{
+//                 console.log("note written")
+//             }
+//         })
+//     })
+//     res.json(req.body);
+// });
 
-app.delete('/api/notes/:id', (req, res) => {
-    fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
-        console.log(data);
-        let dataArray = JSON.parse(data);
-        let dataResult = dataArray.filter(note => note.id !== req.params.id);
-        fs.writeFile("./Develop/db/db.json", JSON.stringify(dataResult), (err) => {
-            if (err) {
-                console.log(err);
-            } else {
-                console.log("Note in trash bin")
-            }
-            res.end();
-        })
-    });
-});
+// app.delete('/api/notes/:id', (req, res) => {
+//     fs.readFile("./Develop/db/db.json", "utf8", (err, data) => {
+//         console.log(data);
+//         let dataArray = JSON.parse(data);
+//         let dataResult = dataArray.filter(note => note.id !== req.params.id);
+//         fs.writeFile("./Develop/db/db.json", JSON.stringify(dataResult), (err) => {
+//             if (err) {
+//                 console.log(err);
+//             } else {
+//                 console.log("Note in trash bin")
+//             }
+//             res.end();
+//         })
+//     });
+// });
+require("./Develop/public/routes/apiRoutes")(app)
 
 //html route  routes
 app.get("/notes", function (req, res) {
+    console.log("html /notes")
     res.sendFile(path.join(__dirname, "./Develop/public/notes.html"));
 });
 
